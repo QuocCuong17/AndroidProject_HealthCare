@@ -3,11 +3,14 @@ package com.example.healthcareapp;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +18,7 @@ public class RegisterPage extends AppCompatActivity {
     private TextView tv;
     private Button btn;
     private EditText edusername, edemail, edpass, edconfirmPass;
-
+    private ImageView im1,im2,im3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +30,42 @@ public class RegisterPage extends AppCompatActivity {
         edemail = findViewById(R.id.editTextRegisterEmail);
         edpass = findViewById(R.id.editTextRegisterPassword);
         edconfirmPass = findViewById(R.id.editTextRegisterConfirmPassword);
-
+        im1=findViewById(R.id.imgg);
+        im2=findViewById(R.id.imfb);
+        im3=findViewById(R.id.imtw);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(RegisterPage.this, LoginPage.class));
+            }
+        });
+        im1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://github.com/QuocCuong17";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        im2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.facebook.com/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        im3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://www.twitter.com/";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
             }
         });
 
