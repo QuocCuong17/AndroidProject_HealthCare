@@ -31,13 +31,26 @@ public class LoginPage extends AppCompatActivity {
                 String username, password;
                 username = ed1.getText().toString();
                 password = ed2.getText().toString();
+                Database db=new Database(getApplicationContext(),"healthcare",null,1);
                 if (username.length()==0 || password.length()==0)
-                    Toast.makeText(LoginPage.this, "Hãy điền đầy đủ tài khoản mật khẩu", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginPage.this, "Vui lòng điền tên người dùng hoặc mật khẩu đúng!", Toast.LENGTH_SHORT).show();
                 else {
-                    Toast.makeText(getApplicationContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                    if(db.login(username,password)==1) {
+                        SharedPreferences sharedPreferences=getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor=sharedPreferences.edit();
+                        editor.putString("username",username);
+                        // to save our data with key value
+                        editor.apply();
+                        String welcomeusername=sharedPreferences.getString("username","").toString();
+                        Toast.makeText(LoginPage.this, "Chào mừng "+welcomeusername, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginPage.this,HomeActivity.class));
+                    }
+                    else
+                        Toast.makeText(LoginPage.this, "Tên người dùng hoặc mật khẩu không hợp lệ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
 
         txt.setOnClickListener(new View.OnClickListener() {
             @Override

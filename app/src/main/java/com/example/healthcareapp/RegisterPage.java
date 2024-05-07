@@ -76,19 +76,29 @@ public class RegisterPage extends AppCompatActivity {
                 String email = edemail.getText().toString();
                 String password = edpass.getText().toString();
                 String confirm = edconfirmPass.getText().toString();
+                Database db=new Database(getApplicationContext(),"healthcare",null,1);
 
                 if (username.length() == 0 || email.length() == 0 || password.length() == 0 || confirm.length() == 0) {
-                    Toast.makeText(RegisterPage.this, "Please fill the credentials", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterPage.this, "Vui lòng điền thông tin đăng nhập", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (password.compareTo(confirm) == 0) {
-                        if (isValid(password)) {
-                            Toast.makeText(RegisterPage.this, "Record Inserted", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterPage.this, LoginPage.class));
-                        } else {
-                            Toast.makeText(RegisterPage.this, "Password must contain at least 8 characters, having letter, digit & special symbol", Toast.LENGTH_SHORT).show();
-                        }
+                    if (db.checkUsers(username)==1) {
+                        Toast.makeText(RegisterPage.this, "Tài khoản đã tồn tại...", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(RegisterPage.this, "Password and confirm password didn't match", Toast.LENGTH_SHORT).show();
+                        if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                            if (password.compareTo(confirm) == 0) {
+                                if (isValid(password)) {
+                                    db.register(username, email, password);
+                                    Toast.makeText(RegisterPage.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(RegisterPage.this, LoginPage.class));
+                                } else {
+                                    Toast.makeText(RegisterPage.this, "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ cái, chữ số và ký tự đặc biệt", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(RegisterPage.this, "Mật khẩu và xác nhận mật khẩu không khớp nhau.", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(RegisterPage.this, "Email không hợp lệ.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
