@@ -16,6 +16,7 @@
         android:gravity="center"
         android:text="CHĂM SÓC SỨC KHOẺ"
         android:textColor="@color/black"
+
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -38,14 +39,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewBMBPackageName"
-        android:layout_marginStart="10dp"
+        android:layout_centerHorizontal="true"
 
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@color/pinkn"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="10dp"
-        android:hint="Username"
+        android:hint="Tài khoản"
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textColorHint="@color/black" />
@@ -83,7 +86,7 @@
         android:textColorHint="@color/black"
         android:drawableLeft="@drawable/ic_baseline_security_24"
         android:drawablePadding="10dp"
-        android:hint="Password"
+        android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:padding="15dp"
         android:textAlignment="gravity"
@@ -103,7 +106,7 @@
         android:textColorHint="@color/black"
         android:drawableLeft="@drawable/ic_baseline_security_24"
         android:drawablePadding="10dp"
-        android:hint="Confirm Password"
+        android:hint="Xác nhận mật khẩu"
         android:inputType="textPassword"
         android:padding="15dp"
         android:textAlignment="gravity"
@@ -123,7 +126,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/btn_bg"
         android:gravity="center"
-        android:text="Register"
+        android:text="Đăng ký"
         android:textColor="@color/black" />
 
         <LinearLayout
