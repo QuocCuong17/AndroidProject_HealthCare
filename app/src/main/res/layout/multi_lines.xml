@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#95CBD1"
+    android:background="#A3E7EF"
     android:padding="8dp"
     android:layout_height="wrap_content">
 
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@color/white"
-        android:textSize="18dp"
+        android:textSize="17dp"
         android:textStyle="italic"/>
 
     <TextView
@@ -20,8 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#A8A795"
-        android:textSize="14dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="13dp"
         />
 
     <LinearLayout
@@ -36,8 +37,9 @@
             android:layout_weight="0.20"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textColor="#A8A795"
-            android:textSize="12dp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:textSize="11dp"
             />
         <TextView
             android:id="@+id/line_d"
@@ -45,8 +47,9 @@
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textColor="#A8A795"
-            android:textSize="12dp"
+            android:textColor="@color/black"
+            android:textSize="11dp"
+            android:textStyle="italic"
             />
         <TextView
             android:id="@+id/line_e"
@@ -54,7 +57,8 @@
             android:layout_weight="0.3"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textColor="#FD0031"
+            android:textStyle="bold"
+            android:textColor="#FFEA00"
             android:textSize="12dp"
             />
 

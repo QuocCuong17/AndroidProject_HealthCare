@@ -105,7 +105,7 @@ public class DoctorDetailActivity extends AppCompatActivity {
             item.put("line2", strings[1]);
             item.put("line3", strings[2]);
             item.put("line4", strings[3]);
-            item.put("line5", "Phí tư vấn: " + strings[4] + "/-");
+            item.put("line5", "Phí tư vấn: " + strings[4]);
             list.add(item);
         }
         sa=new SimpleAdapter(this,list,
